@@ -2,49 +2,46 @@
 
 > A form normalizer to use in addition to [normalize.css](https://github.com/necolas/normalize.css)
 
+[![npm][npm-image]][npm-url] [![license][license-image]][license-url]
+[![changelog][changelog-image]][changelog-url]
+
 **Test page**
 
-https://raw.githack.com/visicode/formalize.css/master/test.html
+See [https://axgmc.github.io/formalize.css/test.html](https://axgmc.github.io/formalize.css/test.html)
 
-**Download**
+**Usage**
 
-https://raw.githubusercontent.com/visicode/formalize.css/master/formalize.min.css
+```sh
+npm install --save normalize.css formalize.css
+```
 
+Or
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/necolas/normalize.css/normalize.min.css,gh/axgmc/formalize.css/formalize.min.css" />
+```
 
 ## What does it do?
 
-* Surcharges [normalize.css](https://github.com/necolas/normalize.css) to normalize forms.
+* Normalizes styles for a wide range of form elements.
+* Enhances [normalize.css](https://github.com/necolas/normalize.css).
 * Preserves useful defaults, unlike many CSS resets.
 * Corrects bugs and common browsers inconsistencies.
 * Improves usability with subtle modifications.
 * Explains what code does using detailed comments.
 
-
 ## Browser support
 
-* Chrome
-* Edge
-* Firefox ESR+
-* Internet Explorer 10+
-* Safari 8+
-* Opera
-
-
-## Extended details
-
-To be included right after [normalize.css](https://github.com/necolas/normalize.css).
-
-```html
-<link rel="stylesheet" href="normalize.min.css" />
-<link rel="stylesheet" href="formalize.min.css" />
-```
-
+* Chrome 119+ (November 2023)
+* Edge 119+ (November 2023)
+* Firefox 88+ (April 2021)
+* Safari 16.5+ (May 2023)
+* Opera 105+ (November 2023)
 
 ## Known issues
 
-See bottom notes on [test page](https://raw.githack.com/visicode/formalize.css/master/test.html).
-
+See bottom notes on [test page](https://axgmc.github.io/formalize.css/test.html).
 
 ## Acknowledgements
 
-formalize.css is a project by [Alexandre Gastaud](https://github.com/visicode), inspired by the [normalize.css](https://github.com/necolas/normalize.css) project created by [Nicolas Gallagher](https://github.com/necolas) and [Jonathan Neal](https://github.com/jonathantneal).
+formalize.css is a project by [VisiCom](https://github.com/axgmc), inspired by [normalize.css](https://github.com/necolas/normalize.css).

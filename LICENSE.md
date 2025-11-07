@@ -1,6 +1,6 @@
 # The MIT License (MIT)
 
-Copyright © [Alexandre Gastaud](https://github.com/visicode)
+Copyright © [VisiCom](https://github.com/axgmc)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

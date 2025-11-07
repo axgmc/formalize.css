@@ -3,101 +3,186 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width,initial-scale=1" />
-	<title>formalize.css test</title>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/necolas/normalize.css/normalize.css" />
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/visicode/formalize.css/formalize.css" />
+	<title>formalize.css test page</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/necolas/normalize.css/normalize.css,gh/axgmc/formalize.css/formalize.css" />
 	<style>
+		body {
+			margin: 1em;
+		}
 		fieldset {
-			background-color: lightgrey;
-			font-size: 30px;
+			background-color: #eee;
 			text-align: right;
-			margin: 50px;
-			padding: 10px;
+			margin: auto;
 		}
-		label {
-			vertical-align: -2px;	/* -padding-top - border-top */
-		}
-		form.widths input:not([type="checkbox"]):not([type="radio"]),
-		form.widths textarea,
-		form.widths button,
-		form.widths select {
-			width: 50%;
-		}
-		form.heights input:not([type="checkbox"]):not([type="radio"]),
-		form.heights button,
-		form.heights select {
-			height: 50px;
-		}
-		form.heights textarea {
-			height: 150px;
-		}
-		form.paddings input,
-		form.paddings textarea,
-		form.paddings button,
-		form.paddings select {
-			padding: 6px;
-		}
-		form.paddings label {
-			vertical-align: -7px;
-		}
-		#tools {
+		dialog {
 			color: white;
-			background-color: navy;
-			left: 0;
+			background-color: rgba(0, 0, 128, .75);
 			top: 0;
-			padding: 15px;
+			margin: 0;
+			padding: .5em 1.5em;
 			position: fixed;
+		}
+		form.widths {
+			--formalize-input-width: 50%;
+			--formalize-button-width: 50%;
+		}
+		form.heights {
+			--formalize-input-height: 32px;
+		}
+		form.margins {
+			--formalize-input-margin: 2px;
+		}
+		form.paddings {
+			--formalize-input-padding: 6px;
+			--formalize-button-padding: 6px 12px;
+		}
+		form.borders {
+			--formalize-border-color: rgb(192, 192, 192);
+			--formalize-placeholder-color: rgba(0, 0, 0, .35);
+			--formalize-border-radius: 5px;
 		}
 	</style>
 </head>
 <body>
-	<form class="sizes">
+	<form>
 		<fieldset>
-			Text: <input type="text" placeholder="placeholder" /><br/>
-			Date (1): <input type="date" /><br/>
-			DateTime: <input type="datetime" /><br/>
-			Number: <input type="number" /><br/>
-			Range: <input type="range" /><br/>
-			Color (2): <input type="color" /><br/>
-			File (6): <input type="file" /><br/>
-			Image (3): <input type="image" /><br/>
-			Month (1): <input type="month" /><br/>
-			Password: <input type="password" /><br/>
-			Tel: <input type="tel" /><br/>
-			Time (1): <input type="time" /><br/>
-			URL: <input type="url" /><br/>
-			Week (4): <input type="week" /><br/>
-			Search: <input type="search" /><br/>
-			<input type="checkbox" /> Checkbox<br/>
-			<input type="radio" /> Radio<br/>
-			<input type="checkbox" /> <span style="line-height: 75px;">Checkbox</span><br/>
-			<input type="radio" style="width: 50px; height: 75px;"/> Radio with size (5)<br/>
-			Combo (1b): <select><option>item</option></select><br/>
-			<label for="textarea">Textarea:</label> <textarea id="textarea">Textarea</textarea><br/>
-			Buttons: <button>Button</button><br/>
-			<input type="button" value="Input button" /><br/>
-			<input type="submit" /><br/>
-			<input type="reset" />
+			<div>
+				<label>Text:</label>
+				<input type="text" placeholder="placeholder" required />
+			</div>
+			<div>
+				<label>Date<sup>(1)</sup>:</label>
+				<input type="date" required />
+			</div>
+			<div>
+				<label>Date-time<sup>(2)</sup>:</label>
+				<input type="datetime" required />
+			</div>
+			<div>
+				<label>Number:</label>
+				<input type="number" required />
+			</div>
+			<div>
+				<label>Range<sup>(3)</sup>:</label>
+				<input type="range" required />
+			</div>
+			<div>
+				<label>Color<sup>(4)</sup>:</label>
+				<input type="color" required />
+			</div>
+			<div>
+				<label>File<sup>(5)</sup>:</label>
+				<input type="file" required />
+			</div>
+			<div>
+				<label>Month<sup>(6)</sup>:</label>
+				<input type="month" required />
+			</div>
+			<div>
+				<label>Password:</label>
+				<input type="password" required />
+			</div>
+			<div>
+				<label>Tel:</label>
+				<input type="tel" required />
+			</div>
+			<div>
+				<label>Time<sup>(1)</sup>:</label>
+				<input type="time" required />
+			</div>
+			<div>
+				<label>URL:</label>
+				<input type="url" required />
+			</div>
+			<div>
+				<label>Week<sup>(6)</sup>:</label>
+				<input type="week" required />
+			</div>
+			<div>
+				<label>Search:</label>
+				<input type="search" required />
+			</div>
+			<div>
+				<input type="checkbox" required />
+				<label>Checkbox</label>
+			</div>
+			<div>
+				<input type="radio" name="A" required />
+				<label>Radio</label>
+			</div>
+			<div>
+				<input type="radio" style="width: 50px; height: 45px;" name="B" required />
+				<label>Radio with size</label>
+			</div>
+			<div>
+				<label>Combo<sup>(7,8)</sup>:</label>
+				<select required>
+					<optgroup label="Group">
+						<option>Item 1</option>
+						<option>Item 2</option>
+					</optgroup>
+				</select>
+			</div>
+			<div>
+				<label>Text area:</label>
+				<textarea rows="4" required></textarea>
+			</div>
+			<div>
+				<button>Button</button>
+			</div>
+			<div>
+				<input type="button" value="Input button" />
+			</div>
+			<div>
+				<input type="image" />
+			</div>
+			<div>
+				<input type="submit" />
+			</div>
+			<div>
+				<input type="reset" />
+			</div>
 		</fieldset>
 	</form>
-	<div id="tools">
-		<input id="widths" type="checkbox" /> Fixed widths<br/>
-		<input id="heights" type="checkbox" /> Fixed heights<br/>
-		<input id="paddings" type="checkbox" /> Extra paddings
+	<footer>
+		<h3>Known issues</h3>
+		<ol>
+			<li>paddings not supported on iPhone (select input)</li>
+			<li>still not supported by browsers</li>
+			<li>outline not rounded in Firefox</li>
+			<li>no tab index in Safari</li>
+			<li>content not vertically centered when setting height</li>
+			<li>not supported in Safari and Firefox</li>
+			<li>paddings and options style not supported on MacOS</li>
+			<li>fixed border radius in Safari (5px)</li>
+		</ol>
+	</footer>
+	<dialog open>
+		<h3>Display options</h3>
+		<p>
+			<input id="widths" type="checkbox" />
+			<label for="widths">Fixed widths</label>
+		</p>
+		<p>
+			<input id="heights" type="checkbox" />
+			<label for="heights">Fixed heights</label>
+		</p>
+		<p>
+			<input id="margins" type="checkbox" />
+			<label for="margins">Extra margins</label>
+		</p>
+		<p>
+			<input id="paddings" type="checkbox" />
+			<label for="paddings">Extra paddings</label>
+		</p>
+		<p>
+			<input id="borders" type="checkbox" />
+			<label for="borders">Nicer borders and placeholders</label>
+		</p>
 	</div>
-	<div>
-		<h2>List of known issues</h2>
-		(1): input is a combo on iPhone: paddings are not allowed -> need to force height<br/>
-		(1b): input is a combo on Mac: paddings are not allowed -> need to force height<br/>
-		(2): input has a lower height on Chrome & Firefox -> need to force height<br/>
-		(3): image input has a lower height on Safari and Firefox when empty<br/>
-		(4): week input is not recognized on iPhone<br/>
-		(5): checkbox and radio inputs are not resized on Mac & Firefox<br/>
-		(6): file input keeps the default focus style on Firefox (2px outline)<br/>
-	</div>
-	<script type="text/javascript">
+	<script>
 		window.addEventListener('load', _ => {
-			document.querySelectorAll('#tools input[id]').forEach(i => {
+			document.querySelectorAll('dialog input[id]').forEach(i => {
 				i.addEventListener('click', function () {
 					document.forms[0].classList.toggle(this.id, this.checked);
 				});

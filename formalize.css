@@ -1,113 +1,171 @@
-/*! formalize.css v1.8.1 | MIT License | github.com/visicode/formalize.css */
+/*! formalize.css v1.9.0 | MIT License | axgmc.github.io/formalize.css */
 
-/* To be included right after normalize.css (https://github.com/necolas/normalize.css)
+/* Constants
    ========================================================================== */
 
 /**
- * Change the border and margin in all browsers (opinionated).
+ * Global colors.
+ */
+
+:root {
+	--formalize-border-color: rgb(118, 118, 118); /* text area default */
+	--formalize-placeholder-color: rgb(117, 117, 117); /* Chrome default */
+	--formalize-group-color: rgb(181, 181, 181); /* MacOS default */
+	--formalize-focus-color: rgba(0, 103, 244, .5); /* Safari default */
+	--formalize-button-color: rgb(239, 239, 239); /* Chrome default */
+	--formalize-button-hover: rgba(0, 103, 244, .25); /* opinionated */
+	--formalize-error-color: rgba(220, 53, 69, .75); /* Bootstrap's danger */
+
+/**
+ * Form elements styles.
+ */
+
+	--formalize-border-radius: 2px; /* visual default */
+	--formalize-input-width: unset;
+	--formalize-input-height: unset;
+	--formalize-input-margin: unset;
+	--formalize-input-padding: 1px 2px; /* Chrome default */
+	--formalize-button-width: unset;
+	--formalize-button-padding: 1px 6px; /* Chrome default */
+}
+
+/**
+ * Invalid form elements styles.
+ */
+
+:user-invalid {
+	--formalize-border-color: var(--formalize-error-color);
+	--formalize-focus-color: rgb(from var(--formalize-error-color) r g b / .5);
+}
+
+/* Form elements
+   ========================================================================== */
+
+/**
+ * Consistent border color in Safari and Firefox.
  */
 
 fieldset {
-	border: 1px solid #c0c0c0;
-	margin: 0 2px;
+	border-color: rgb(240, 240, 240);
 }
 
 /**
- * Set line height to 'inherit'.
- */
-
-button,
-input,
-optgroup,
-select,
-textarea {
-	line-height: inherit;
-}
-
-/**
- * Consistent style, width and color between all fields (opinionated).
+ * 1. Consistent border style for all form elements (opinionated).
+ * 2. Consistent border radius for all form elements (opinionated).
+ * 3. Enables consistent margins for all form elements.
  */
 
 button,
 input,
 select,
 textarea {
-	border: 1px solid #c0c0c0;
+	border: 1px solid var(--formalize-border-color); /* 1 */
+	border-radius: var(--formalize-border-radius); /* 2 */
+	margin: var(--formalize-input-margin); /* 3 */
 }
 
 /**
- * 1. Consistent paddings.
- * 2. Allow setting the same size for all form fields.
- */
-
-input,
-textarea {
-	padding: 1px; /* 1 */
-	box-sizing: border-box; /* 2 */
-}
-
-/**
- * Revert to initial values for some fields.
+ * Reverts some form elements to initial values.
  */
 
 [type="range"],
 [type="file"],
 [type="image"] {
-	border: 0;
-	padding: 0;
+	border: revert;
 }
 
 /**
- * Consistent vertical alignments.
+ * Enables consistent width for all form elements (or 'revert' to avoid no width for color input).
+ */
+
+input,
+select,
+textarea {
+	width: var(--formalize-input-width, revert);
+}
+
+/**
+ * Reverts some form elements to initial values.
+ */
+
+[type="checkbox"],
+[type="radio"],
+[type="button"],
+[type="image"],
+[type="submit"],
+[type="reset"] {
+	width: revert;
+}
+
+/**
+ * Enables consistent height for all form elements (or 'revert' to avoid no height for color input).
+ */
+
+button,
+input,
+select {
+	height: var(--formalize-input-height, revert);
+}
+
+/**
+ * Reverts some form elements to initial values.
+ */
+
+[type="image"] {
+	height: revert;
+}
+
+/**
+ * 1. Consistent paddings for all form elements (opinionated).
+ * 2. Enables consistent size for all form elements.
+ */
+
+input,
+textarea {
+	padding: var(--formalize-input-padding); /* 1 */
+	box-sizing: border-box; /* 2 */
+}
+
+/**
+ * Reverts some form elements to initial values.
  */
 
 [type="range"],
-[type="color"],
+[type="file"],
+[type="button"],
 [type="image"],
-[type="checkbox"],
-[type="radio"] {
-	vertical-align: middle;
+[type="submit"],
+[type="reset"] {
+	padding: revert;
 }
 
 /**
- * Allow correct vertical alignment with field label.
+ * 1. Consistent background color in Firefox.
+ * 2. consistent background color (opinionated).
  */
 
-textarea {
-	vertical-align: top;
+select, /* 1 */
+[type="color"] { /* 2 */
+	background-color: field;
 }
 
 /**
- * Consistent background color on Chrome.
- */
-
-[type="color"] {
-	background-color: #fff;
-}
-
-/**
- * Consistent background color on Edge and IE.
- */
-
-[type="file"] {
-	background-color: transparent;
-}
-
-/**
- * 1. Consistent buttons background color for all browsers (opinionated).
- * 2. Consistent paddings.
+ * 1. Consistent buttons background color in Safari and Firefox.
+ * 2. Consistent paddings in Safari and Firefox.
+ * 3. Enables consistent width for all buttons.
  */
 
 button,
 [type="button"],
-[type="reset"],
-[type="submit"] {
-	background-color: #e1e1e1; /* 1 */
-	padding: 1px 6px; /* 2 */
+[type="submit"],
+[type="reset"] {
+	background-color: var(--formalize-button-color); /* 1 */
+	padding: var(--formalize-button-padding); /* 2 */
+	width: var(--formalize-button-width); /* 3 */
 }
 
 /**
- * Remove the inside button border in Chrome.
+ * Removes the inside button border in webkit browsers.
  */
 
 ::-webkit-color-swatch {
@@ -115,7 +173,7 @@ button,
 }
 
 /**
- * Remove the inside button border in Firefox.
+ * Removes the inside button border in Firefox.
  */
 
 ::-moz-color-swatch {
@@ -123,7 +181,7 @@ button,
 }
 
 /**
- * Remove the inside button padding in Chrome.
+ * Removes the inside button padding in webkit browsers.
  */
 
 ::-webkit-color-swatch-wrapper {
@@ -131,161 +189,142 @@ button,
 }
 
 /**
- * Remove the inside button padding in Firefox.
+ * 1. Consistent border style for file input button (opinionated).
+ * 2. Consistent border radius for file input button (opinionated).
+ * 3. Consistent file input button background color in Safari and Firefox.
+ * 4. Consistent file input button paddings in Safari and Firefox.
  */
 
-::-moz-color-swatch-wrapper {
-	padding: 0;
+::file-selector-button {
+	border: 1px solid var(--formalize-border-color); /* 1 */
+	border-radius: var(--formalize-border-radius); /* 2 */
+	background-color: var(--formalize-button-color); /* 3 */
+	padding: var(--formalize-button-padding); /* 4 */
 }
 
 /**
- * 1. Consistent style, width and color between all fields (opinionated, same than above).
- * 2. Consistent background color for all browsers (opinionated, same than above).
+ * Avoids text areas resizing for consistency (opinionated).
  */
 
-::-webkit-file-upload-button {
-	border: 1px solid #c0c0c0; /* 1 */
-	background-color: #e1e1e1; /* 2 */
+textarea {
+	resize: none;
 }
 
 /**
- * Consistent style, width and color between all fields (opinionated, same than above).
+ * 1. Consistent option group color and font weight (opinionated).
+ * 2. Consistent option group font style in Firefox.
  */
 
-::-ms-browse {
-	border: 1px solid #c0c0c0;
+optgroup {
+	color: var(--formalize-group-color); /* 1 */
+	font-weight: lighter; /* 1 */
+	font-style: normal; /* 2 */
+}
+
+/**
+ * Reverts option color to initial value.
+ */
+
+option {
+	color: initial;
 }
 
 /* Placeholders
    ========================================================================== */
 
 /**
- * 1. Consistent placeholder color (opinionated).
- * 2. Correct Firefox opacity.
+ * 1. Consistent placeholder color in Safari and Firefox.
+ * 2. Opacity fix in Firefox older versions.
  */
 
 ::-webkit-input-placeholder {
-	color: #a9a9a9; /* 1 */
+	color: var(--formalize-placeholder-color); /* 1 */
 }
+
 ::-moz-placeholder {
-	color: #a9a9a9; /* 1 */
+	color: var(--formalize-placeholder-color); /* 1 */
 	opacity: 1; /* 2 */
-}
-:-ms-input-placeholder {
-	color: #a9a9a9; /* 1 */
 }
 
 /* Focus effect
    ========================================================================== */
 
 /**
- * Remove all focus outlines.
+ * 1. Consistent focus outline style (opinionated).
+ * 2. Forces buttons outline effect in Firefox.
  */
 
-input:focus,
-textarea:focus {
-	outline-width: 0;
+:focus-visible,
+[type="date"]:focus-within,
+[type="datetime"]:focus-within,
+[type="month"]:focus-within,
+[type="time"]:focus-within,
+[type="week"]:focus-within,
+button:focus-visible, /* 2 */
+[type='button']:focus-visible, /* 2 */
+[type='submit']:focus-visible, /* 2 */
+[type='reset']:focus-visible { /* 2 */
+	outline: 3px solid var(--formalize-focus-color);
+	outline-offset: 2px;
 }
 
 /**
- * 1. Add a focus outline for some fields only (opinionated).
- * 2. Set the focus outline to be just around the field border.
- */
-
-button:focus,
-[type="range"]:focus,
-[type="image"]:focus,
-[type="checkbox"]:focus,
-[type="radio"]:focus,
-[type="button"]:focus,
-[type="reset"]:focus,
-[type="submit"]:focus,
-select:focus {
-	outline: 1px dotted #000; /* 1 */
-	outline-offset: 0; /* 2 */
-}
-
-/**
- * Remove the focus border in Firefox.
+ * Remove the focus border in Firefox older versions.
  */
 
 [type="range"]::-moz-focus-outer {
 	border: 0;
 }
 
-/**
- * Revert the webkit blur effect on focus in Safari for better visual effect.
- */
-
-[type="checkbox"]:focus,
-[type="radio"]:focus {
-	outline-style: auto;
-}
-
-/**
- * Remove the focus outline in Firefox to only keep the original effect.
- */
-
-[type="range"]:-moz-focusring,
-[type="checkbox"]:-moz-focusring,
-[type="radio"]:-moz-focusring {
-	outline-width: 0;
-}
-
-/**
- * Add a focus outline for color field (Chrome) and file selector field (Chrome & Safari) (same than above).
- */
-
-:focus::-webkit-color-swatch,
-:focus::-webkit-file-upload-button {
-	outline: 1px dotted #000;
-}
-
-/**
- * Add a focus outline for file selector field in Edge and IE (same than above).
- */
-
-:focus::-ms-browse {
-	outline: 1px dotted #000;
-}
-
 /* Hover effect
    ========================================================================== */
 
 /**
- * Consistent background color for all browsers (opinionated).
+ * Consistent hover background color (opinionated).
  */
 
 button:hover,
 [type="button"]:hover,
-[type="reset"]:hover,
-[type="submit"]:hover {
-	background-color: #e5f1fb;
-}
-::-webkit-file-upload-button:hover {
-	background-color: #e5f1fb;
-}
-::-ms-browse:hover {
-	background-color: #e5f1fb;
+[type="submit"]:hover,
+[type="reset"]:hover {
+	background-color: var(--formalize-button-hover);
 }
 
-/* Normalize.css fixes
+/**
+ * Consistent hover background color for file input button (opinionated).
+ */
+
+:hover::file-selector-button {
+	background-color: var(--formalize-button-hover);
+}
+
+/* Labels
    ========================================================================== */
 
 /**
- * Consistent links effects (#577).
+ * Consistent vertical alignments (opinionated).
+ */
+
+input,
+select,
+textarea {
+	vertical-align: middle;
+}
+
+/* normalize.css fixes
+   ========================================================================== */
+
+/**
+ * Consistent links outlines (issue #577).
  */
 
 a:active,
 a:hover {
-	outline-width: 0;
-}
-a:focus {
-	outline: 1px dotted #000;
+	outline: none;
 }
 
 /**
- * Consistent display mode in Firefox when image field is empty (#546).
+ * Fix display in Firefox older versions when image input is empty (issue #546).
  */
 
 [type="image"] {
@@ -293,7 +332,7 @@ a:focus {
 }
 
 /**
- * iPhone bug displaying search input with rounded angles before entering into the field (#582).
+ * Fix rounded corners bug before first focus on search input in iOS (issue #582).
  */
 
 [type="search"] {
