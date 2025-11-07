@@ -2,20 +2,11 @@
 
 > A form normalizer to use in addition to [normalize.css](https://github.com/necolas/normalize.css)
 
-[![npm][npm-image]][npm-url] [![license][license-image]][license-url]
-[![changelog][changelog-image]][changelog-url]
-
 **Test page**
 
 See [https://axgmc.github.io/formalize.css/test.html](https://axgmc.github.io/formalize.css/test.html)
 
 **Usage**
-
-```sh
-npm install --save normalize.css formalize.css
-```
-
-Or
 
 ```html
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/necolas/normalize.css/normalize.min.css,gh/axgmc/formalize.css/formalize.min.css" />
