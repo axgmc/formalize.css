@@ -1,21 +1,29 @@
 # formalize.css
 
-> A form normalizer to use in addition to [normalize.css](https://github.com/necolas/normalize.css)
+> A form normalizer to use in addition to [normalize.css](https://necolas.github.io/normalize.css)
 
-**Test page**
+### Test page
 
-See [https://axgmc.github.io/formalize.css/test.html](https://axgmc.github.io/formalize.css/test.html)
+[https://axgmc.github.io/formalize.css/test.html](https://axgmc.github.io/formalize.css/test.html)
 
-**Usage**
+### Usage
+
+#### Bundled version
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/necolas/normalize.css/normalize.min.css,gh/axgmc/formalize.css/formalize.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/axgmc/formalize.css/formalize.full.min.css" />
+```
+
+#### Themed version
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/axgmc/formalize.css/formalize.themed.min.css" />
 ```
 
 ## What does it do?
 
 * Normalizes styles for a wide range of form elements.
-* Enhances [normalize.css](https://github.com/necolas/normalize.css).
+* Enhances [normalize.css](https://necolas.github.io/normalize.css).
 * Preserves useful defaults, unlike many CSS resets.
 * Corrects bugs and common browsers inconsistencies.
 * Improves usability with subtle modifications.
@@ -32,7 +40,3 @@ See [https://axgmc.github.io/formalize.css/test.html](https://axgmc.github.io/fo
 ## Known issues
 
 See bottom notes on [test page](https://axgmc.github.io/formalize.css/test.html).
-
-## Acknowledgements
-
-formalize.css is a project by [VisiCom](https://github.com/axgmc), inspired by [normalize.css](https://github.com/necolas/normalize.css).

@@ -2,7 +2,7 @@
 
 :root {
 	--formalize-border-color: rgb(192, 192, 192);
-	--formalize-placeholder-color: rgba(0, 0, 0, .35);
+	--formalize-placeholder-color: rgb(168, 168, 168);
 	--formalize-border-radius: 5px;
 	--formalize-input-width: 50%;
 	--formalize-input-height: 32px;

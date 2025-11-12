@@ -1,0 +1,18 @@
+{
+	"name": "formalize.css",
+	"version": "1.9.1",
+	"description": "A form normalizer to use in addition to normalize.css",
+	"homepage": "https://axgmc.github.io/formalize.css",
+	"license": "MIT",
+	"main": "formalize.css",
+	"style": "formalize.css",
+	"readme": "README.md",
+	"scripts": {
+		"build:full": "cat node_modules/normalize.css/normalize.css formalize.css > formalize.full.css",
+		"build:themed": "cat node_modules/normalize.css/normalize.css formalize.css theme.css > formalize.themed.css",
+		"build": "npm run build:full && npm run build:themed"
+	},
+	"devDependencies": {
+		"normalize.css": "^8.0.1"
+	}
+}

@@ -1,5 +1,12 @@
 # Changes to formalize.css
 
+### 1.9.1 (November 12, 2025)
+
+* New bundled and themed versions
+* Improved transparency of some colors
+* Removed hover effect from disabled buttons
+* README.md and test.html updates
+
 ### 1.9.0 (November 7, 2025)
 
 * Major styles redesign
