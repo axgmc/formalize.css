@@ -1,5 +1,9 @@
 # Changes to formalize.css
 
+### 1.9.2 (November 12, 2025)
+
+* No fixed height in theme.css
+
 ### 1.9.1 (November 12, 2025)
 
 * New bundled and themed versions
